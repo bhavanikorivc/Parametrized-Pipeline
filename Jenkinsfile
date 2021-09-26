@@ -1,9 +1,9 @@
 pipeline {
-	agent none
+	agent any
         triggers { cron { 'H/15 * * * *' } }
          environment { Name = 'Jagadevi' }
          parameters { 
-                 string { name: 'NAME' , description: 'Ener your project name here:' }}
+        string { name: 'NAME' , description: 'Ener your project name here:' }}
 	stages {
 		stage ('BUILD') 
 			{
