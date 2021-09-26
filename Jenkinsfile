@@ -9,7 +9,7 @@ pipeline {
 			{
 			parallel {
     				stage ('C_Build') {
-                                         agent any
+                                        
                                   
  
 			steps {
@@ -24,7 +24,7 @@ pipeline {
 			            '''
 					} }
 				stage ('Java_Build') {
- 				agent { label 'master' }
+ 			
 				 steps {
  					 sh ''' echo The present working directory is : 
 						pwd
@@ -39,7 +39,7 @@ pipeline {
                            }
 			}
 
-		stage ('TEST') { agent any
+		stage ('TEST') {
                         environment { stagename = 'TEST' }
    			steps {
 				sh '''
@@ -48,7 +48,7 @@ pipeline {
 				df -h
 				''' } 
  		}	
-		stage ('DEPLOY') { agent any
+		stage ('DEPLOY') {
 			steps {
 				sh '''
 					echo This job is to deploy the builds
